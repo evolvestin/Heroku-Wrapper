@@ -40,7 +40,8 @@ def environ_installer():
     warnings.simplefilter('ignore')
     app, environ, packages = None, False, []
     for app in heroku3.from_key(os.environ['api']).apps():
-        pass
+        print(app)
+    print(os.environ.items())
     for key, value in os.environ.items():
         if key.lower().endswith('.json') and key.lower() not in os.listdir('.'):
             with open(key.lower(), 'w') as file:
