@@ -41,10 +41,9 @@ def environ_installer():
     app, environ, packages = None, False, []
     for app in heroku3.from_key(os.environ['api']).apps():
         print(app)
+    print(os.environ.items())
     for key, value in os.environ.items():
-        print('key:', key, 'value:', value)
-    for key, value in os.environ.items():
-        if key.lower().endswith('_json') and key.lower() not in os.listdir('.'):
+        if key.lower().endswith('.json') and key.lower() not in os.listdir('.'):
             with open(key.lower(), 'w') as file:
                 file.write(value)
     with open('requirements.txt') as file:
