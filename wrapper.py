@@ -43,8 +43,8 @@ def environ_installer():
         print(app)
     print(os.environ.items())
     for key, value in os.environ.items():
-        if key.lower().endswith('.json') and key.lower() not in os.listdir('.'):
-            with open(key.lower(), 'w') as file:
+        if key.lower().endswith('_json') and key.lower() not in os.listdir('.'):
+            with open(re.sub('_json', '.json', key.lower()), 'w') as file:
                 file.write(value)
     with open('requirements.txt') as file:
         wrapper_requirements = file.read().split('\n')
