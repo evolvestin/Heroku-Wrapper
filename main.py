@@ -1,5 +1,10 @@
+from time import sleep
+
+
 def start(stamp):
     print(stamp)
 
 
-print('hello)')
+for i in range(100):
+    print(f'hello){i}')
+    sleep(10)
